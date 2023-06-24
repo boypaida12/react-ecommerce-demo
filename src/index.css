@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Kumbh Sans', sans-serif !important;
+}
+
+.text-orange {
+    color: hsl(26, 100%, 55%);
+}
+
+.bg-orange-50 {
+    background-color: hsl(25, 100%, 94%);
+}
+
+.bg-orange {
+    background-color: hsl(26, 100%, 55%);
+}
+
+.text-white-90 {
+    color: hsl(223, 64%, 98%);
+}
+
+.text-grey-30 {
+    color: hsl(220, 14%, 75%);
+}
+
+.text-grey-50 {
+    color: hsl(219, 9%, 45%);
+}
+
+.text-black-90 {
+    color: hsl(220, 13%, 13%);
+}
+
+
