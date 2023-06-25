@@ -1,14 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { Container, Row, Col, Figure, Image } from "react-bootstrap";
-import ImageProductOne from "../assets/image-product-1.jpg";
-import ImageProductTwo from "../assets/image-product-2.jpg";
-import ImageProductThree from "../assets/image-product-3.jpg";
-import ImageProductFour from "../assets/image-product-4.jpg";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import ImageProduct1 from "../assets/image-product-1-thumbnail.jpg";
-import ImageProduct2 from "../assets/image-product-2-thumbnail.jpg";
-import ImageProduct3 from "../assets/image-product-3-thumbnail.jpg";
-import ImageProduct4 from "../assets/image-product-4-thumbnail.jpg";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { increaseCart, decreaseCart } from "../slices/productSlices";
@@ -28,6 +21,8 @@ import {
 } from "@chakra-ui/react";
 import CartModal from "./CartModal";
 import { Link } from "react-router-dom";
+import MobileScreenSlide from "./MobileScreenSlide";
+import LargeScreenSlide from "./LargeScreenSlide";
 
 const HeroSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -35,14 +30,6 @@ const HeroSection = () => {
     return state.productReducer;
   });
   const dispatch = useDispatch();
-  const [displayedImage, setDisplayedImage] = useState("");
-
-  const thumbnails = [
-    { src: ImageProduct1, alt: "Thumbnail 1", mainImage: ImageProductOne },
-    { src: ImageProduct2, alt: "Thumbnail 2", mainImage: ImageProductTwo },
-    { src: ImageProduct3, alt: "Thumbnail 3", mainImage: ImageProductThree },
-    { src: ImageProduct4, alt: "Thumbnail 4", mainImage: ImageProductFour },
-  ];
 
   const handleDecrease = () => {
     dispatch(decreaseCart());
@@ -50,10 +37,6 @@ const HeroSection = () => {
 
   const handleIncrease = () => {
     dispatch(increaseCart());
-  };
-
-  const handleClick = (image) => {
-    setDisplayedImage(image);
   };
 
   const handleAddtoCart = () => {
@@ -64,32 +47,13 @@ const HeroSection = () => {
 
   return (
     <>
-      <Container style={{ maxWidth: 1080 }}>
+      <Container style={{ maxWidth: 1080 }} className="mt-lg-5">
         <Row>
-          <Col md={6}>
-            <Image
-              src={displayedImage || ImageProductOne}
-              className="rounded-3"
-              width={430}
-            />
-
-            <br />
-            <Figure className="d-flex gap-4">
-              {thumbnails.map((thumbnail, index) => (
-                <Figure.Image
-                  key={index}
-                  className="rounded-2"
-                  style={{ cursor: "pointer" }}
-                  width={90}
-                  alt={thumbnail.alt}
-                  src={thumbnail.src}
-                  onClick={() => handleClick(thumbnail.mainImage)}
-                />
-              ))}
-            </Figure>
+          <Col lg={6}>
+            <LargeScreenSlide/>
+            <MobileScreenSlide />
           </Col>
-
-          <Col md={6} className="py-5">
+          <Col lg={6} className="py-5">
             <small className="fw-bold text-uppercase text-orange">
               Sneaker Company
             </small>
@@ -97,41 +61,47 @@ const HeroSection = () => {
               Fall Limited Edition
               <br /> Sneakers
             </p>
-            <p style={{ maxWidth: "35vw", color: "hsl(219, 9%, 45%)" }}>
-              {`These low-profile sneakers are your perfect casual wear
-              companion. Featuring a durable rubber outer sole, they'll withstand
-              everything the weather can offer.`}
+            <p className="text-grey-50" style={{width: "85%"}}>
+              <small>
+                {`These low-profile sneakers are your perfect casual wear
+                companion. Featuring a durable rubber outer sole, they'll withstand
+                everything the weather can offer.`}
+              </small>
             </p>
-            <div className="my-3">
+            <div className="my-3 d-flex justify-content-between d-lg-block">
               <div className="d-flex flex-wrap gap-2">
                 <span className="fw-bold fs-5">$125.00</span>
-                <span className="fw-bold rounded-2 px-2 align-self-center text-orange bg-orange-50">
+                <small className="fw-bold rounded-2 px-2 align-self-center text-orange bg-orange-50">
                   50%
-                </span>
+                </small>
               </div>
-              <small className="d-block text-decoration-line-through fw-semibold text-grey-30">
+              <small className="d-block align-self-center text-decoration-line-through fw-semibold text-grey-30">
                 $250.00
               </small>
             </div>
-            <div className="d-flex gap-3">
+            <div className="d-md-flex gap-3">
               <ButtonGroup
                 size="md"
                 isAttached
                 variant="outline"
-                backgroundColor={"hsl(223, 64%, 98%)"}
                 my={5}
+                w="full"
               >
                 <IconButton
                   aria-label="Decrease cart"
                   icon={<MinusIcon boxSize={"0.8rem"} />}
                   borderRightColor={"transparent"}
                   onClick={handleDecrease}
-                  _hover={{ backgroundColor: "transparent" }}
+                  backgroundColor={"hsl(223, 64%, 98%)"}
+                  _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
                   color={"hsl(26, 100%, 55%)"}
+                  width={"calc(100%/3)"}
                 />
                 <Button
                   borderInline={0}
-                  _hover={{ backgroundColor: "transparent" }}
+                  backgroundColor={"hsl(223, 64%, 98%)"}
+                  _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
+                  width={"calc(100%/3)"}
                 >
                   {state.count}
                 </Button>
@@ -140,14 +110,17 @@ const HeroSection = () => {
                   icon={<AddIcon boxSize={"0.8rem"} />}
                   borderLeftColor={"transparent"}
                   onClick={handleIncrease}
-                  _hover={{ backgroundColor: "transparent" }}
+                  backgroundColor={"hsl(223, 64%, 98%)"}
+                  _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
                   color={"hsl(26, 100%, 55%)"}
+                  width={"calc(100%/3)"}
                 />
               </ButtonGroup>
               <Button
                 className="align-self-center"
                 px={10}
                 size={"md"}
+                w="full"
                 backgroundColor={"hsl(26, 100%, 55%)"}
                 color={"hsl(0, 0%, 100%)"}
                 _hover={{

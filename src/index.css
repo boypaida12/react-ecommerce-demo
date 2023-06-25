@@ -1,35 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+:root {
+    --text-orange: hsl(26, 100%, 55%);
+    --bg-orange-50: hsl(25, 100%, 94%);
+    --text-white-90: hsl(223, 64%, 98%);
+    --text-grey-30: hsl(220, 14%, 75%);
+    --text-grey-50: hsl(219, 9%, 45%);
+    --text-black-90: hsl(220, 13%, 13%);
+}
 
 body {
     font-family: 'Kumbh Sans', sans-serif !important;
 }
 
 .text-orange {
-    color: hsl(26, 100%, 55%);
+    color: var(--text-orange)
 }
 
 .bg-orange-50 {
-    background-color: hsl(25, 100%, 94%);
+    background-color: var(--bg-orange-50);
 }
 
 .bg-orange {
-    background-color: hsl(26, 100%, 55%);
+    background-color: var(--text-orange)
 }
 
 .text-white-90 {
-    color: hsl(223, 64%, 98%);
+    color: var(--text-white-90);
 }
 
 .text-grey-30 {
-    color: hsl(220, 14%, 75%);
+    color: var(--text-grey-30);
 }
 
 .text-grey-50 {
-    color: hsl(219, 9%, 45%);
+    color: var(--text-grey-50);
 }
 
 .text-black-90 {
-    color: hsl(220, 13%, 13%);
+    color: var(--text-black-90);
+}
+
+.navbar-toggler, .navbar-toggler:focus{
+    border: transparent!important;
+    outline: transparent !important;
+    box-shadow : none !important;
+}
+
+.navbar-toggler-icon {
+    background: url('./assets/menu.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 100% !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--bg-orange-50);
 }
 
 

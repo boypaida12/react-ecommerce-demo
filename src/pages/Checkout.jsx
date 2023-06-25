@@ -3,7 +3,6 @@ import {
   Button,
   FormControl,
   FormErrorMessage,
-  FormHelperText,
   FormLabel,
   Grid,
   GridItem,
@@ -15,6 +14,7 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ProductImage from "../assets/image-product-1.jpg"
+import Navigation from "../components/Navigation";
 
 function Checkout() {
   const state = useSelector((state) => {
@@ -83,18 +83,20 @@ function Checkout() {
 
   return (
     <>
+      <Navigation/>
       <Container
-        className="bg-body-tertiary d-flex justify-content-center align-items-center min-vh-100"
+        className="bg-body-tertiary py-5 pt-lg-0 d-flex flex-column justify-content-center align-items-center min-vh-100"
         fluid
       >
         <Grid
-          templateColumns="50% 45%"
+          templateColumns={{base: "1fr", md:"50% 45%"}}
           gap={10}
           bgColor={"white"}
           boxShadow={"lg"}
+          maxW={1080}
           overflow={"hidden"}
-          maxWidth={1080}
-          p={10}
+          // maxWidth={1080}
+          p={{base:5,lg:10}}
           rounded={"2xl"}
 
         >
@@ -110,7 +112,7 @@ function Checkout() {
                         my={5}
                       >
                         <FormLabel>Email address</FormLabel>
-                        <Input {...field} placeholder="example@email.com" />
+                        <Input {...field} placeholder="example@email.com" _placeholder={{fontSize:"14px"}}/>
                         <FormErrorMessage>{form.errors.email}</FormErrorMessage>
                       </FormControl>
                     )}
@@ -126,6 +128,7 @@ function Checkout() {
                           {...field}
                           placeholder="x x x x     x x x x     x x x x     x x x x"
                           pattern="[\d| ]{16,22}"
+                          _placeholder={{fontSize:"14px"}}
                         />
                         <FormErrorMessage>
                           {form.errors.number}
@@ -133,7 +136,7 @@ function Checkout() {
                       </FormControl>
                     )}
                   </Field>
-                  <Grid templateColumns="repeat(2, 1fr)" gap={5} my={5}>
+                  <Grid templateColumns={{base: "1fr", lg:"repeat(2, 1fr)"}} gap={5} my={5}>
                     <Field name="date" validate={validateExpiryDate}>
                       {({ field, form }) => (
                         <FormControl
@@ -144,6 +147,7 @@ function Checkout() {
                             {...field}
                             placeholder="mm / yy"
                             pattern="\d\d/\d\d"
+                            _placeholder={{fontSize:"14px"}}
                           />
                           <FormErrorMessage>
                             {form.errors.date}
@@ -160,6 +164,7 @@ function Checkout() {
                           <Input
                             {...field}
                             placeholder="x x x"
+                            _placeholder={{fontSize:"14px"}}
                             pattern="\d{3,4}"
                           />
                           <FormErrorMessage>{form.errors.cvc}</FormErrorMessage>
@@ -181,14 +186,15 @@ function Checkout() {
                     <span className="fw-bold">${total}</span>
                   </div>
                   <Button
-                    mt={4}
+                    mt={12}
                     backgroundColor={"hsl(26, 100%, 55%)"}
                     _hover={{
                       backgroundColor: "hsl(26, 100%, 55%)",
                       boxShadow: "lg",
                     }}
                     color={"whiteAlpha.900"}
-                    w={"xs"}
+                    width={{base: "100%"}}
+                    marginInline={{base: "auto"}}
                     type="submit"
                   >
                     Pay Now
@@ -197,8 +203,9 @@ function Checkout() {
               )}
             </Formik>
           </GridItem>
-          <GridItem alignSelf={"center"}>
+          <GridItem alignSelf={"center"} order={"-1"}>
             <Image src={ProductImage} alt="" rounded={"lg"}/>
+            {/* <MobileScreenSlide/> */}
           </GridItem>
         </Grid>
       </Container>
