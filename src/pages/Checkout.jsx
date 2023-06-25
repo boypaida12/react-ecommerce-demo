@@ -85,7 +85,7 @@ function Checkout() {
     <>
       <Navigation/>
       <Container
-        className="bg-body-tertiary py-5 pt-lg-0 d-flex flex-column justify-content-center align-items-center min-vh-100"
+        className="bg-body-tertiary py-5 py-lg-0 d-flex flex-column justify-content-center align-items-center min-vh-100"
         fluid
       >
         <Grid
@@ -95,7 +95,6 @@ function Checkout() {
           boxShadow={"lg"}
           maxW={1080}
           overflow={"hidden"}
-          // maxWidth={1080}
           p={{base:5,lg:10}}
           rounded={"2xl"}
 
@@ -204,7 +203,7 @@ function Checkout() {
             </Formik>
           </GridItem>
           <GridItem alignSelf={"center"} order={"-1"}>
-            <Image src={ProductImage} alt="" rounded={"lg"}/>
+            <Image src={ProductImage} alt="/" rounded={"lg"}/>
             {/* <MobileScreenSlide/> */}
           </GridItem>
         </Grid>

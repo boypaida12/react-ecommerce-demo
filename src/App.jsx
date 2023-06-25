@@ -5,12 +5,14 @@ import Checkout from "./pages/Checkout";
 function App() {
   return (
     <>
-      <ChakraProvider>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/checkout" element={<Checkout/>}/>
-        </Routes>
-      </ChakraProvider>
+      <main>
+        <ChakraProvider>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/checkout" element={<Checkout/>}/>
+          </Routes>
+        </ChakraProvider>
+      </main>
     </>
   );
 }

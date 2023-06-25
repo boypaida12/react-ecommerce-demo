@@ -32,16 +32,16 @@ function MobileScreenSlide() {
           className="mySwiper"
         >
           <SwiperSlide>
-            <img src={ImageProductOne} className=" rounded-start-5"/>
+            <img src={ImageProductOne} className=" rounded-start-5" alt="/"/>
           </SwiperSlide>
           <SwiperSlide>
-            <img src={ImageProductTwo}/>
+            <img src={ImageProductTwo} alt="/"/>
           </SwiperSlide>
           <SwiperSlide>
-            <img src={ImageProductThree}/>
+            <img src={ImageProductThree} alt="/"/>
           </SwiperSlide>
           <SwiperSlide>
-            <img src={ImageProductFour} className=" rounded-end-5"/>
+            <img src={ImageProductFour} className=" rounded-end-5" alt="/"/>
           </SwiperSlide>
         </Swiper>
       </div>
