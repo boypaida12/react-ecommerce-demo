@@ -24,8 +24,8 @@ function MobileScreenSlide() {
           cubeEffect={{
             shadow: true,
             slideShadows: true,
-            shadowOffset: 20,
-            shadowScale: 0.94,
+            shadowOffset: 15,
+            shadowScale: 0.85,
           }}
           pagination={true}
           modules={[EffectCube, Pagination]}

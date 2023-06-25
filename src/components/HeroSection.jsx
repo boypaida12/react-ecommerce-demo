@@ -18,6 +18,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Box,
 } from "@chakra-ui/react";
 import CartModal from "./CartModal";
 import { Link } from "react-router-dom";
@@ -47,95 +48,97 @@ const HeroSection = () => {
 
   return (
     <>
-      <Container style={{ maxWidth: 1080 }} className="mt-lg-5">
-        <Row>
-          <Col lg={6}>
-            <LargeScreenSlide/>
-            <MobileScreenSlide />
-          </Col>
-          <Col lg={6} className="py-5">
-            <small className="fw-bold text-uppercase text-orange">
-              Sneaker Company
-            </small>
-            <p className="fs-1 fw-bold">
-              Fall Limited Edition
-              <br /> Sneakers
-            </p>
-            <p className="text-grey-50" style={{width: "85%"}}>
-              <small>
-                {`These low-profile sneakers are your perfect casual wear
-                companion. Featuring a durable rubber outer sole, they'll withstand
-                everything the weather can offer.`}
+      <Box maxWidth={1016} marginInline={"auto"}>
+        <Container className="mt-lg-5">
+          <Row>
+            <Col lg={6}>
+              <LargeScreenSlide/>
+              <MobileScreenSlide />
+            </Col>
+            <Col lg={6} className="py-5">
+              <small className="fw-bold text-uppercase text-orange">
+                Sneaker Company
               </small>
-            </p>
-            <div className="my-3 d-flex justify-content-between d-lg-block">
-              <div className="d-flex flex-wrap gap-2">
-                <span className="fw-bold fs-5">$125.00</span>
-                <small className="fw-bold rounded-2 px-2 align-self-center text-orange bg-orange-50">
-                  50%
+              <p className="fs-1 fw-bold">
+                Fall Limited Edition
+                <br /> Sneakers
+              </p>
+              <p className="text-grey-50" style={{width: "85%"}}>
+                <small>
+                  {`These low-profile sneakers are your perfect casual wear
+                  companion. Featuring a durable rubber outer sole, they'll withstand
+                  everything the weather can offer.`}
+                </small>
+              </p>
+              <div className="my-3 d-flex justify-content-between d-lg-block">
+                <div className="d-flex flex-wrap gap-2">
+                  <span className="fw-bold fs-5">$125.00</span>
+                  <small className="fw-bold rounded-2 px-2 align-self-center text-orange bg-orange-50">
+                    50%
+                  </small>
+                </div>
+                <small className="d-block align-self-center text-decoration-line-through fw-semibold text-grey-30">
+                  $250.00
                 </small>
               </div>
-              <small className="d-block align-self-center text-decoration-line-through fw-semibold text-grey-30">
-                $250.00
-              </small>
-            </div>
-            <div className="d-md-flex gap-3">
-              <ButtonGroup
-                size="md"
-                isAttached
-                variant="outline"
-                my={5}
-                w="full"
-              >
-                <IconButton
-                  aria-label="Decrease cart"
-                  icon={<MinusIcon boxSize={"0.8rem"} />}
-                  borderRightColor={"transparent"}
-                  onClick={handleDecrease}
-                  backgroundColor={"hsl(223, 64%, 98%)"}
-                  _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
-                  color={"hsl(26, 100%, 55%)"}
-                  width={"calc(100%/3)"}
-                />
-                <Button
-                  borderInline={0}
-                  backgroundColor={"hsl(223, 64%, 98%)"}
-                  _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
-                  width={"calc(100%/3)"}
+              <div className="d-md-flex gap-3">
+                <ButtonGroup
+                  size="md"
+                  isAttached
+                  variant="outline"
+                  my={5}
+                  w={{base: "full", lg: "35%"}}
                 >
-                  {state.count}
+                  <IconButton
+                    aria-label="Decrease cart"
+                    icon={<MinusIcon boxSize={"0.8rem"} />}
+                    borderRightColor={"transparent"}
+                    onClick={handleDecrease}
+                    backgroundColor={"hsl(223, 64%, 98%)"}
+                    _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
+                    color={"hsl(26, 100%, 55%)"}
+                    width={"calc(100%/3)"}
+                  />
+                  <Button
+                    borderInline={0}
+                    backgroundColor={"hsl(223, 64%, 98%)"}
+                    _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
+                    width={"calc(100%/3)"}
+                  >
+                    {state.count}
+                  </Button>
+                  <IconButton
+                    aria-label="Increase cart"
+                    icon={<AddIcon boxSize={"0.8rem"} />}
+                    borderLeftColor={"transparent"}
+                    onClick={handleIncrease}
+                    backgroundColor={"hsl(223, 64%, 98%)"}
+                    _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
+                    color={"hsl(26, 100%, 55%)"}
+                    width={"calc(100%/3)"}
+                  />
+                </ButtonGroup>
+                <Button
+                  className="align-self-center"
+                  px={10}
+                  size={"md"}
+                  w={{base: "full", lg: "45%"}}
+                  backgroundColor={"hsl(26, 100%, 55%)"}
+                  color={"hsl(0, 0%, 100%)"}
+                  _hover={{
+                    backgroundColor: "hsl(26, 100%, 55%)",
+                    boxShadow: "lg",
+                  }}
+                  onClick={handleAddtoCart}
+                >
+                  <AiOutlineShoppingCart />
+                  <small className="ms-3">Add to Cart</small>
                 </Button>
-                <IconButton
-                  aria-label="Increase cart"
-                  icon={<AddIcon boxSize={"0.8rem"} />}
-                  borderLeftColor={"transparent"}
-                  onClick={handleIncrease}
-                  backgroundColor={"hsl(223, 64%, 98%)"}
-                  _hover={{ backgroundColor: "hsl(223, 64%, 98%)" }}
-                  color={"hsl(26, 100%, 55%)"}
-                  width={"calc(100%/3)"}
-                />
-              </ButtonGroup>
-              <Button
-                className="align-self-center"
-                px={10}
-                size={"md"}
-                w="full"
-                backgroundColor={"hsl(26, 100%, 55%)"}
-                color={"hsl(0, 0%, 100%)"}
-                _hover={{
-                  backgroundColor: "hsl(26, 100%, 55%)",
-                  boxShadow: "lg",
-                }}
-                onClick={handleAddtoCart}
-              >
-                <AiOutlineShoppingCart />
-                <small className="ms-3">Add to Cart</small>
-              </Button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </Box>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
