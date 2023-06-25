@@ -19,7 +19,7 @@ function CartModal({ productImage }) {
           <br />
           <span>
             ${state.price} x {state.count} =
-            <span className="text-black-90 fw-bold"> {subTotal}</span>
+            <span className="text-black-90 fw-bold"> ${subTotal}.00</span>
           </span>
         </div>
       </div>

@@ -27,6 +27,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import CartModal from "./CartModal";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -176,6 +177,8 @@ const HeroSection = () => {
               backgroundColor={"hsl(26, 100%, 55%)"}
               colorScheme="whiteAlpha"
               _hover={{ backgroundColor: "hsl(26, 100%, 55%)" }}
+              as={Link}
+              to="/checkout"
             >
               Proceed to Checkout
             </Button>
