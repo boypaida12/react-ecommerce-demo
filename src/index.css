@@ -57,4 +57,18 @@ body {
     background-color: var(--bg-orange-50);
 }
 
+.paystack-button {
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    background-color: var(--text-orange);
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 45px;
+    margin-top: 40px;
+  }
 
